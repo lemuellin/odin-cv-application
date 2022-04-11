@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "../../styles/inputComponent.css"
 
 class EduInfo extends Component{
     constructor(props){
@@ -15,8 +16,8 @@ class EduInfo extends Component{
 
     render(){
         return(
-            <form>
-                <div>Education</div>
+            <form className="component">
+                <div className="title">Education</div>
                 <label htmlFor="school">School Name: </label>
                 <input id="school" name="school" type="text" value={this.props.school} onChange={this.handleChange}/>
 

@@ -1,0 +1,14 @@
+.header{
+    font-size: 3rem;
+    text-align: center;
+}
+
+.component{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.title{
+    font-size: 1.5rem;
+}
