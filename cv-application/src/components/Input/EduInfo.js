@@ -1,36 +1,31 @@
-import React, {Component} from "react";
+import React from "react";
 import "../../styles/inputComponent.css"
 
-class EduInfo extends Component{
-    constructor(props){
-        super(props);
+const EduInfo = (props) => {
+
+    const handleChange = (e) => {
+        props.onEduInfoChange(e.target);
     }
 
-    handleChange = (e) => {
-        this.props.onEduInfoChange(e.target);
+    const handleAdd = () => {
+        props.onAddSection();
     }
 
-    handleAdd = (e) => {
-        this.props.onAddSection();
-    }
+    return(
+        <form className="component">
+            <div className="title">Education</div>
+            <label htmlFor="school">School Name: </label>
+            <input id="school" name="school" type="text" value={props.school} onChange={handleChange}/>
 
-    render(){
-        return(
-            <form className="component">
-                <div className="title">Education</div>
-                <label htmlFor="school">School Name: </label>
-                <input id="school" name="school" type="text" value={this.props.school} onChange={this.handleChange}/>
+            <label htmlFor="title">Title of Study: </label>
+            <input id="title" name="title" type="text" value={props.title} onChange={handleChange}/>
 
-                <label htmlFor="title">Title of Study: </label>
-                <input id="title" name="title" type="text" value={this.props.title} onChange={this.handleChange}/>
+            <label htmlFor="date">Date of Study: </label>
+            <input id="date" name="date" value={props.date} onChange={handleChange}/>
 
-                <label htmlFor="date">Date of Study: </label>
-                <input id="date" name="date" value={this.props.date} onChange={this.handleChange}/>
-
-                <button type="button" onClick={this.handleAdd}>Add</button>
-            </form>
-        );
-    }
+            <button type="button" onClick={handleAdd}>Add</button>
+        </form>
+    );
 }
 
 export default EduInfo;

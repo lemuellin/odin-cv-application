@@ -1,30 +1,25 @@
-import React, {Component} from "react";
+import React from "react";
 import "../../styles/inputComponent.css"
 
-class GenInfo extends Component{
-    constructor(props){
-        super(props);   
+const GenInfo = (props) => {
+
+    const handleChange = (e) => {
+        props.onGenInfoChange(e.target);
     }
 
-    handleChange = (e) => {
-        this.props.onGenInfoChange(e.target);
-    }
+    return(
+        <form className="component">
+            <div className="title">General Information</div>
+            <label htmlFor="nameInput">Enter Name: </label>
+            <input id="nameInput" name="name" type="text" value={props.name} onChange={handleChange}/>
 
-    render(){
-        return(
-            <form className="component">
-                <div className="title">General Information</div>
-                <label htmlFor="nameInput">Enter Name: </label>
-                <input id="nameInput" name="name" type="text" value={this.props.name} onChange={this.handleChange}/>
+            <label htmlFor="emailInput">Enter E-Mail: </label>
+            <input id="emailInput" name="email" type="email" value={props.email} onChange={handleChange}/>
 
-                <label htmlFor="emailInput">Enter E-Mail: </label>
-                <input id="emailInput" name="email" type="email" value={this.props.email} onChange={this.handleChange}/>
-
-                <label htmlFor="phoneInput">Enter Phone Number: </label>
-                <input id="phoneInput" name="phone" type="number" value={this.props.phone} onChange={this.handleChange}/>
-            </form>
-        );
-    }
+            <label htmlFor="phoneInput">Enter Phone Number: </label>
+            <input id="phoneInput" name="phone" type="number" value={props.phone} onChange={handleChange}/>
+        </form>
+    );
 }
 
 export default GenInfo;
